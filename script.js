@@ -286,7 +286,8 @@ const rackets = [
 
 const state = {
   answers: {},
-  currentIndex: 0
+  unlockedCount: 1,
+  complete: false
 };
 
 const elements = {
@@ -319,16 +320,21 @@ function getOptionColumns(columns) {
   return '';
 }
 
-function updateProgress() {
-  const progress = Math.round((state.currentIndex / questions.length) * 100);
-  elements.progressFill.style.width = `${progress}%`;
-  elements.progressNumber.textContent = `${state.currentIndex} / ${questions.length}`;
+function getAnsweredCount() {
+  return questions.filter((question) => state.answers[question.id]).length;
 }
 
-function renderQuestion() {
-  const question = questions[state.currentIndex];
+function updateProgress() {
+  const answered = getAnsweredCount();
+  const progress = Math.round((answered / questions.length) * 100);
+  elements.progressFill.style.width = `${progress}%`;
+  elements.progressNumber.textContent = `${answered} / ${questions.length}`;
+}
+
+function renderQuestionCard(question, index) {
   const selectedValue = state.answers[question.id];
   const optionColumns = getOptionColumns(question.cols);
+  const isUnlocked = index < state.unlockedCount;
   const optionsMarkup = question.opts
     .map(
       (option) => `
@@ -337,40 +343,28 @@ function renderQuestion() {
           type="button"
           data-action="pick"
           data-question-id="${question.id}"
+          data-question-index="${index}"
           data-value="${option.value}"
         >${option.label.replace(/\n/g, '<br>')}</button>
       `
     )
     .join('');
 
-  elements.quizArea.innerHTML = `
-    <div class="card">
+  return `
+    <article
+      class="card question-card ${isUnlocked ? 'unlocked' : 'locked'}${selectedValue ? ' answered' : ''}"
+      id="q-${index}"
+      data-index="${index}"
+    >
       <div class="q-step">${question.step} <span class="blink">_</span></div>
       <div class="q-text">${question.text}</div>
       <div class="q-hint">${question.hint}</div>
       <div class="opts ${optionColumns}">${optionsMarkup}</div>
-      <div class="navrow">
-        ${state.currentIndex > 0 ? '<button class="nbtn back" type="button" data-action="back">&lt;&lt; BACK</button>' : ''}
-        <button
-          class="nbtn next"
-          id="nb"
-          type="button"
-          data-action="next"
-          ${selectedValue ? '' : 'disabled'}
-        >${state.currentIndex === questions.length - 1 ? 'FINISH &gt;&gt;' : 'NEXT &gt;&gt;'}</button>
-      </div>
-    </div>
+    </article>
   `;
-
-  updateProgress();
 }
 
-function pickAnswer(questionId, value) {
-  state.answers[questionId] = value;
-  renderQuestion();
-}
-
-function showResults() {
+function renderResultsMarkup() {
   const topMatches = rackets
     .map((racket) => ({ ...racket, fitScore: racket.score(state.answers) }))
     .sort((left, right) => right.fitScore - left.fitScore)
@@ -411,9 +405,7 @@ function showResults() {
     )
     .join('');
 
-  elements.progressFill.style.width = '100%';
-  elements.progressNumber.textContent = `${questions.length} / ${questions.length}`;
-  elements.quizArea.innerHTML = `
+  return `
     <div class="card results-header">
       <div class="q-step results-step">[COMPLETE] FITTING DONE <span class="blink">_</span></div>
       <div class="q-text results-title">YOUR PERSONALIZED RACKET MATCHES:</div>
@@ -423,33 +415,104 @@ function showResults() {
   `;
 }
 
-function goNext() {
-  const question = questions[state.currentIndex];
-
-  if (!state.answers[question.id]) {
-    return;
-  }
-
-  if (state.currentIndex < questions.length - 1) {
-    state.currentIndex += 1;
-    renderQuestion();
-    return;
-  }
-
-  showResults();
+function renderQuiz() {
+  elements.quizArea.innerHTML = `
+    <div class="quiz-flow">
+      ${questions.map((question, index) => renderQuestionCard(question, index)).join('')}
+      <div class="results-section locked" id="results"></div>
+    </div>
+  `;
+  updateProgress();
 }
 
-function goBack() {
-  if (state.currentIndex > 0) {
-    state.currentIndex -= 1;
-    renderQuestion();
+function syncQuestionCard(index) {
+  const question = questions[index];
+  const card = document.getElementById(`q-${index}`);
+
+  if (!card) {
+    return;
   }
+
+  const selectedValue = state.answers[question.id];
+  card.classList.toggle('answered', Boolean(selectedValue));
+
+  card.querySelectorAll('.opt').forEach((button) => {
+    button.classList.toggle('sel', button.dataset.value === selectedValue);
+  });
+}
+
+function unlockQuestion(index) {
+  const card = document.getElementById(`q-${index}`);
+
+  if (!card) {
+    return;
+  }
+
+  card.classList.remove('locked');
+  card.classList.add('unlocked');
+}
+
+function scrollToElement(element) {
+  if (!element) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+function showResults() {
+  const results = document.getElementById('results');
+
+  if (!results) {
+    return;
+  }
+
+  state.complete = true;
+  results.innerHTML = renderResultsMarkup();
+  results.classList.remove('locked');
+  results.classList.add('unlocked');
+  updateProgress();
+  scrollToElement(results);
+}
+
+function pickAnswer(questionId, questionIndex, value) {
+  if (state.complete) {
+    return;
+  }
+
+  const wasAtFrontier = questionIndex === state.unlockedCount - 1;
+  state.answers[questionId] = value;
+  syncQuestionCard(questionIndex);
+  updateProgress();
+
+  const isLastQuestion = questionIndex === questions.length - 1;
+
+  if (isLastQuestion && wasAtFrontier) {
+    window.setTimeout(showResults, 350);
+    return;
+  }
+
+  if (!wasAtFrontier) {
+    return;
+  }
+
+  const nextIndex = questionIndex + 1;
+  state.unlockedCount = Math.max(state.unlockedCount, nextIndex + 1);
+  unlockQuestion(nextIndex);
+
+  window.setTimeout(() => {
+    scrollToElement(document.getElementById(`q-${nextIndex}`));
+  }, 280);
 }
 
 function restartQuiz() {
   state.answers = {};
-  state.currentIndex = 0;
-  renderQuestion();
+  state.unlockedCount = 1;
+  state.complete = false;
+  renderQuiz();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 elements.quizArea.addEventListener('click', (event) => {
@@ -462,17 +525,11 @@ elements.quizArea.addEventListener('click', (event) => {
   const { action } = target.dataset;
 
   if (action === 'pick') {
-    pickAnswer(target.dataset.questionId, target.dataset.value);
-    return;
-  }
-
-  if (action === 'next') {
-    goNext();
-    return;
-  }
-
-  if (action === 'back') {
-    goBack();
+    pickAnswer(
+      target.dataset.questionId,
+      Number(target.dataset.questionIndex),
+      target.dataset.value
+    );
     return;
   }
 
@@ -481,4 +538,4 @@ elements.quizArea.addEventListener('click', (event) => {
   }
 });
 
-renderQuestion();
+renderQuiz();
