@@ -7,6 +7,11 @@ This project is now split into separate files so the quiz is easier to maintain.
 - `index.html`: page structure
 - `styles.css`: visual styling
 - `script.js`: quiz logic, questions, and racket recommendations
+- `assets/rackets/`: product photos for recommendation cards
+
+## Style notes
+
+The UI follows a retro 8-bit arcade look: Press Start 2P typography, thick borders, hard shadows, bracket labels like `[TIP]`, and no emoji icons.
 
 ## Run locally
 

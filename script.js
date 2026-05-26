@@ -3,7 +3,7 @@ const questions = [
     id: 'ntrp',
     step: '// Q1 - SKILL LEVEL',
     text: 'What is your NTRP rating (or closest description)?',
-    hint: '💡 NTRP is the standard tennis rating scale. 2.5 = rally & learn, 3.5 = solid strokes, 4.5 = competitive club, 5.0+ = tournament level.',
+    hint: '[TIP] NTRP is the standard tennis rating scale. 2.5 = rally and learn, 3.5 = solid strokes, 4.5 = competitive club, 5.0+ = tournament level.',
     cols: 2,
     opts: [
       { value: '25', label: '2.0 - 2.5\nLearning basics,\nconsistency is the\nmain goal' },
@@ -16,33 +16,33 @@ const questions = [
     id: 'shots',
     step: '// Q2 - STROKE PRODUCTION',
     text: 'How do you mainly generate power on groundstrokes?',
-    hint: '💡 This tells us whether you need the racket to add power for you, or if you generate your own and need control.',
+    hint: '[TIP] This tells us whether you need the racket to add power for you, or if you generate your own and need control.',
     cols: 2,
     opts: [
-      { value: 'arm', label: '🤜 ARM & WRIST\nShort compact swing,\nrelying on the racket\nfor pop' },
-      { value: 'body', label: '🔄 BODY ROTATION\nFull shoulder turn,\nswing drives\nthrough the ball' },
-      { value: 'heavy', label: '💥 HEAVY TOPSPIN\nBrushing up, high\nfollow-through,\nNadal style' },
-      { value: 'flat', label: '⚡ FLAT & HARD\nDriving through,\nminimal spin,\nDel Potro style' }
+      { value: 'arm', label: 'ARM & WRIST\nShort compact swing,\nrelying on the racket\nfor pop' },
+      { value: 'body', label: 'BODY ROTATION\nFull shoulder turn,\nswing drives\nthrough the ball' },
+      { value: 'heavy', label: 'HEAVY TOPSPIN\nBrushing up, high\nfollow-through,\nNadal style' },
+      { value: 'flat', label: 'FLAT & HARD\nDriving through,\nminimal spin,\nDel Potro style' }
     ]
   },
   {
     id: 'weakness',
     step: '// Q3 - BIGGEST COMPLAINT',
     text: 'What is your biggest issue with your current game or racket?',
-    hint: '💡 Your honest weak point is the single most useful signal for choosing the right frame spec.',
+    hint: '[TIP] Your honest weak point is the single most useful signal for choosing the right frame spec.',
     cols: 2,
     opts: [
-      { value: 'nopower', label: '😤 NOT ENOUGH POWER\nBall lands short,\nhard to hit through\nthe court' },
-      { value: 'nocontrol', label: '😬 SHOTS GOING LONG\nToo much power,\nhitting past the\nbaseline often' },
-      { value: 'nospin', label: "🌀 LACK OF SPIN\nCan't keep heavy\ntopspin in court\nor get slice to bite" },
-      { value: 'arm', label: '💢 ARM / ELBOW PAIN\nVibration or stiffness\ncauses discomfort\nafter play' }
+      { value: 'nopower', label: 'NOT ENOUGH POWER\nBall lands short,\nhard to hit through\nthe court' },
+      { value: 'nocontrol', label: 'SHOTS GOING LONG\nToo much power,\nhitting past the\nbaseline often' },
+      { value: 'nospin', label: "LACK OF SPIN\nCan't keep heavy\ntopspin in court\nor get slice to bite" },
+      { value: 'arm', label: 'ARM / ELBOW PAIN\nVibration or stiffness\ncauses discomfort\nafter play' }
     ]
   },
   {
     id: 'grip',
     step: '// Q4 - GRIP SIZE',
     text: 'What grip size do you use, or how does your hand measure?',
-    hint: '💡 Measure from the middle crease of your palm to the tip of your ring finger. Too small = over-gripping. Too big = less wrist snap.',
+    hint: '[TIP] Measure from the middle crease of your palm to the tip of your ring finger. Too small = over-gripping. Too big = less wrist snap.',
     cols: 2,
     opts: [
       { value: 'g1', label: 'GRIP 1 - 2\n(4 - 4 1/4 inch)\nSmaller hands,\njuniors or women' },
@@ -55,50 +55,50 @@ const questions = [
     id: 'headsize',
     step: '// Q5 - SWEET SPOT PREFERENCE',
     text: 'When you mishit, what do you want the racket to do?',
-    hint: '💡 Head size is the #1 spec that determines forgiveness. Larger = more forgiving. Smaller = more precise but punishes mishits.',
+    hint: '[TIP] Head size is the #1 spec that determines forgiveness. Larger = more forgiving. Smaller = more precise but punishes mishits.',
     cols: 2,
     opts: [
-      { value: 'oversized', label: '🟢 FORGIVE ME\nI want a big sweet\nspot - mishits\nstill go in' },
-      { value: 'mid_plus', label: '🟡 BALANCED\nSome forgiveness\nbut I can handle\nprecision (98-102 sq in)' },
-      { value: 'mid', label: '🔴 PRECISE\nI hit the center\nconsistently. Want\nfull control (93-97 sq in)' },
-      { value: 'notsure', label: '❓ NOT SURE\nHelp me decide\nbased on my\nother answers' }
+      { value: 'oversized', label: 'FORGIVE ME\nI want a big sweet\nspot - mishits\nstill go in' },
+      { value: 'mid_plus', label: 'BALANCED\nSome forgiveness\nbut I can handle\nprecision (98-102 sq in)' },
+      { value: 'mid', label: 'PRECISE\nI hit the center\nconsistently. Want\nfull control (93-97 sq in)' },
+      { value: 'notsure', label: 'NOT SURE\nHelp me decide\nbased on my\nother answers' }
     ]
   },
   {
     id: 'weight',
     step: '// Q6 - RACKET WEIGHT FEEL',
     text: "How do you feel about your current or past racket's weight?",
-    hint: '💡 Heavier rackets (300g+) give stability and plow-through. Lighter rackets are easier to swing and kinder to the arm.',
+    hint: '[TIP] Heavier rackets (300g+) give stability and plow-through. Lighter rackets are easier to swing and kinder to the arm.',
     cols: 2,
     opts: [
-      { value: 'light', label: '🪶 TOO HEAVY\nI want something\nlighter & faster\nto swing' },
-      { value: 'fine', label: '✅ FEELS RIGHT\nCurrent weight\nfeels natural\nand comfortable' },
-      { value: 'heavy', label: '🏋️ TOO LIGHT\nI want more mass\nfor stability on\nhard-hit balls' },
-      { value: 'first', label: '🆕 FIRST RACKET\nI have no reference\n- guide me' }
+      { value: 'light', label: 'TOO HEAVY\nI want something\nlighter and faster\nto swing' },
+      { value: 'fine', label: 'FEELS RIGHT\nCurrent weight\nfeels natural\nand comfortable' },
+      { value: 'heavy', label: 'TOO LIGHT\nI want more mass\nfor stability on\nhard-hit balls' },
+      { value: 'first', label: 'FIRST RACKET\nI have no reference\n- guide me' }
     ]
   },
   {
     id: 'pattern',
     step: '// Q7 - STRING PATTERN',
     text: 'What matters more: spin potential or string durability?',
-    hint: '💡 Open patterns (16x19) = more spin & power but strings break faster. Dense (18x20) = control & durability.',
+    hint: '[TIP] Open patterns (16x19) = more spin and power but strings break faster. Dense (18x20) = control and durability.',
     cols: 2,
     opts: [
-      { value: 'open', label: '🌀 MAX SPIN\nI want heavy\ntopspin, open\n16x19 pattern' },
-      { value: 'dense', label: '🎯 CONTROL\nI prefer precision,\ndense 18x20\nlasts longer' },
-      { value: 'either', label: "🤷 EITHER\nI'm not particular\nabout string pattern\nyet" }
+      { value: 'open', label: 'MAX SPIN\nI want heavy\ntopspin, open\n16x19 pattern' },
+      { value: 'dense', label: 'CONTROL\nI prefer precision,\ndense 18x20\nlasts longer' },
+      { value: 'either', label: "EITHER\nI'm not particular\nabout string pattern\nyet" }
     ]
   },
   {
     id: 'budget',
     step: '// Q8 - BUDGET',
     text: 'What is your budget for a new racket?',
-    hint: '💡 Higher budget opens up pro-level frames with advanced graphite layup. Mid-range still gets you excellent performance.',
+    hint: '[TIP] Higher budget opens up pro-level frames with advanced graphite layup. Mid-range still gets you excellent performance.',
     cols: 2,
     opts: [
-      { value: 'low', label: '💰 UNDER $80\nBest value picks,\ngreat for\nbeginners' },
-      { value: 'mid', label: '💳 $80 - $160\nSolid mid-range\nframes for all\nlevels' },
-      { value: 'high', label: '💎 $160+\nPremium pro-level\nframes with top\ntechnology' }
+      { value: 'low', label: 'UNDER $80\nBest value picks,\ngreat for\nbeginners' },
+      { value: 'mid', label: '$80 - $160\nSolid mid-range\nframes for all\nlevels' },
+      { value: 'high', label: '$160+\nPremium pro-level\nframes with top\ntechnology' }
     ]
   }
 ];
@@ -106,6 +106,7 @@ const questions = [
 const rackets = [
   {
     name: 'Wilson Clash 100',
+    image: 'assets/rackets/wilson-clash-100.jpg',
     specs: ['100 sq in', '295g', '16x19', 'Flex RA 55'],
     tags: [
       { label: 'arm-friendly', color: 'g' },
@@ -120,13 +121,14 @@ const rackets = [
       (answers.shots === 'arm' || answers.shots === 'body' ? 1 : 0) +
       (answers.weight === 'fine' || answers.weight === 'first' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Wilson+Clash+100',
-      tennisExpress: 'https://www.tennisexpress.com/wilson-clash-100',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/Wilson_Clash_100/p/WILC100.html'
+      amazon: 'https://www.amazon.com/s?k=Wilson+Clash+100+v3+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/clash-100-v3-tennis-racquet',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/Wilson_Clash_100_v3/descpageRCWILSON-CL103V.html'
     }
   },
   {
     name: 'Babolat Pure Drive 2024',
+    image: 'assets/rackets/babolat-pure-drive.jpg',
     specs: ['100 sq in', '300g', '16x19', 'Stiff RA 71'],
     tags: [
       { label: 'power', color: 'a' },
@@ -141,13 +143,14 @@ const rackets = [
       (answers.headsize === 'mid_plus' || answers.headsize === 'oversized' || answers.headsize === 'notsure' ? 1 : 0) +
       (answers.ntrp === '30' || answers.ntrp === '40' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Babolat+Pure+Drive+2024',
-      tennisExpress: 'https://www.tennisexpress.com/babolat-pure-drive',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/Babolat_Pure_Drive/p/BAPD.html'
+      amazon: 'https://www.amazon.com/s?k=Babolat+Pure+Drive+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/pure-drive-gen11-tennis-racquet-blue-1',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/descpageRCBABOLAT-BPD25R.html'
     }
   },
   {
     name: 'Head Boom MP',
+    image: 'assets/rackets/head-boom-mp.jpg',
     specs: ['100 sq in', '300g', '16x19', 'Mid flex RA 63'],
     tags: [
       { label: 'spin', color: 'a' },
@@ -162,13 +165,14 @@ const rackets = [
       (answers.weakness === 'arm' ? 2 : 0) +
       (answers.ntrp === '30' || answers.ntrp === '40' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Head+Boom+MP',
-      tennisExpress: 'https://www.tennisexpress.com/head-boom-mp',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/HEAD_Boom_MP/p/HDBMPX.html'
+      amazon: 'https://www.amazon.com/s?k=Head+Boom+MP+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/head-boom-mp-2024-tennis-racquet-108293',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/descpageRCHEAD-HBOOMM.html'
     }
   },
   {
     name: 'Yonex VCORE 98',
+    image: 'assets/rackets/yonex-vcore-98.jpg',
     specs: ['98 sq in', '305g', '16x19', 'Stiff RA 67'],
     tags: [
       { label: 'topspin', color: 'a' },
@@ -183,13 +187,14 @@ const rackets = [
       (answers.headsize === 'mid_plus' || answers.headsize === 'notsure' ? 2 : 0) +
       (answers.weight === 'fine' || answers.weight === 'heavy' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Yonex+VCORE+98',
-      tennisExpress: 'https://www.tennisexpress.com/yonex-vcore-98',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/Yonex_VCORE_98/p/YXVC98.html'
+      amazon: 'https://www.amazon.com/s?k=Yonex+VCORE+98+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/yonex-vcore-98-7th-gen-sand-beige-tennis-racquet-111182',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/Yonex_VCORE_98_8th_Gen/descpageRCYONEX-VC988G.html'
     }
   },
   {
     name: 'Wilson Pro Staff 97 v14',
+    image: 'assets/rackets/wilson-pro-staff-97.jpg',
     specs: ['97 sq in', '315g', '18x20', 'Control RA 63'],
     tags: [
       { label: '18x20 dense', color: 'g' },
@@ -205,13 +210,14 @@ const rackets = [
       (answers.weight === 'heavy' || answers.weight === 'fine' ? 1 : 0) +
       (answers.headsize === 'mid' ? 2 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Wilson+Pro+Staff+97+v14',
-      tennisExpress: 'https://www.tennisexpress.com/wilson-pro-staff-97',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/Wilson_Pro_Staff_97_v14/p/WLPS97V14.html'
+      amazon: 'https://www.amazon.com/s?k=Wilson+Pro+Staff+97+v14+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/wilson-pro-staff-97-v140-tennis-racquet-103535',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/Wilson_Pro_Staff_97_v14_Sesion_Soiree/descpageRCWILSON-PS14SS.html'
     }
   },
   {
     name: 'Head Speed MP 2024',
+    image: 'assets/rackets/head-speed-mp.jpg',
     specs: ['100 sq in', '295g', '16x19', 'Mid-stiff RA 65'],
     tags: [
       { label: 'spin', color: 'a' },
@@ -227,13 +233,14 @@ const rackets = [
       (answers.headsize === 'mid_plus' || answers.headsize === 'notsure' ? 1 : 0) +
       (answers.ntrp === '30' || answers.ntrp === '40' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Head+Speed+MP+2024',
-      tennisExpress: 'https://www.tennisexpress.com/head-speed-mp',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/HEAD_Speed_MP/p/HDSPDMP.html'
+      amazon: 'https://www.amazon.com/s?k=Head+Speed+MP+2024+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/head-speed-mp-2024-tennis-racquet-108289',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/descpageRCHEAD-HSPDM.html'
     }
   },
   {
     name: 'Tecnifibre TF-X1 300',
+    image: 'assets/rackets/tecnifibre-tf-x1.jpg',
     specs: ['102 sq in', '300g', '16x19', 'Flex RA 58'],
     tags: [
       { label: 'beginner-friendly', color: 'g' },
@@ -248,13 +255,14 @@ const rackets = [
       (answers.weight === 'light' || answers.weight === 'first' ? 2 : 0) +
       (answers.shots === 'arm' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Tecnifibre+TF-X1+300',
-      tennisExpress: 'https://www.tennisexpress.com/tecnifibre-tf-x1',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/Tecnifibre_TF-X1/p/TFTFX1.html'
+      amazon: 'https://www.amazon.com/s?k=Tecnifibre+TF-X1+300+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/tf-x1-v2-305-performance-tennis-racquet',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/Tecnifibre_TF-X1_305_v2/descpageRCTFUSA-TFX135.html'
     }
   },
   {
     name: 'Babolat Pure Aero 2023',
+    image: 'assets/rackets/babolat-pure-aero.jpg',
     specs: ['100 sq in', '300g', '16x19', 'Stiff RA 70'],
     tags: [
       { label: 'topspin', color: 'a' },
@@ -269,9 +277,9 @@ const rackets = [
       (answers.pattern === 'open' ? 2 : 0) +
       (answers.weight === 'fine' || answers.weight === 'heavy' ? 1 : 0),
     links: {
-      amazon: 'https://www.amazon.com/s?k=Babolat+Pure+Aero+2023',
-      tennisExpress: 'https://www.tennisexpress.com/babolat-pure-aero',
-      tennisWarehouse: 'https://www.tennis-warehouse.com/Babolat_Pure_Aero/p/BAPA.html'
+      amazon: 'https://www.amazon.com/s?k=Babolat+Pure+Aero+2023+tennis+racquet',
+      tennisExpress: 'https://tennisexpress.com/products/babolat-pure-aero-2023-tennis-racquet-99849',
+      tennisWarehouse: 'https://www.tennis-warehouse.com/Babolat_Pure_Aero_2023/descpageRCBAB-BARO.html'
     }
   }
 ];
@@ -342,14 +350,14 @@ function renderQuestion() {
       <div class="q-hint">${question.hint}</div>
       <div class="opts ${optionColumns}">${optionsMarkup}</div>
       <div class="navrow">
-        ${state.currentIndex > 0 ? '<button class="nbtn back" type="button" data-action="back">◀ BACK</button>' : ''}
+        ${state.currentIndex > 0 ? '<button class="nbtn back" type="button" data-action="back">&lt;&lt; BACK</button>' : ''}
         <button
           class="nbtn next"
           id="nb"
           type="button"
           data-action="next"
           ${selectedValue ? '' : 'disabled'}
-        >${state.currentIndex === questions.length - 1 ? 'FINISH ▶' : 'NEXT ▶'}</button>
+        >${state.currentIndex === questions.length - 1 ? 'FINISH &gt;&gt;' : 'NEXT &gt;&gt;'}</button>
       </div>
     </div>
   `;
@@ -368,29 +376,35 @@ function showResults() {
     .sort((left, right) => right.fitScore - left.fitScore)
     .slice(0, 3);
 
-  const medals = ['🥇', '🥈', '🥉'];
   const labels = ['TOP PICK', 'RUNNER UP', 'ALSO GREAT'];
 
   const cardsMarkup = topMatches
     .map(
       (racket, index) => `
         <div class="res-card">
-          <div class="res-rank">
-            <span>${medals[index]} ${labels[index]}</span>
-            <span class="score-b">FIT SCORE: ${racket.fitScore}</span>
-          </div>
-          <div class="res-name">${racket.name}</div>
-          <div class="spec-row">
-            ${racket.specs.map((spec) => `<span class="spec-pill">${spec}</span>`).join('')}
-          </div>
-          <div class="tags">
-            ${racket.tags.map((tag) => `<span class="${getTagClass(tag.color)}">${tag.label}</span>`).join('')}
-          </div>
-          <div class="res-desc">${racket.desc}</div>
-          <div class="buy-row">
-            <a class="buy az" href="${racket.links.amazon}" target="_blank" rel="noreferrer noopener">🛒 AMAZON</a>
-            <a class="buy te" href="${racket.links.tennisExpress}" target="_blank" rel="noreferrer noopener">🎾 TENNIS EXPRESS</a>
-            <a class="buy tw" href="${racket.links.tennisWarehouse}" target="_blank" rel="noreferrer noopener">🏪 TENNIS WAREHOUSE</a>
+          <div class="res-card-inner">
+            <div class="res-body">
+              <div class="res-rank">
+                <span><span class="rank-num">#${index + 1}</span>${labels[index]}</span>
+                <span class="score-b">FIT ${racket.fitScore}</span>
+              </div>
+              <div class="res-name">${racket.name}</div>
+              <div class="spec-row">
+                ${racket.specs.map((spec) => `<span class="spec-pill">${spec}</span>`).join('')}
+              </div>
+              <div class="tags">
+                ${racket.tags.map((tag) => `<span class="${getTagClass(tag.color)}">${tag.label}</span>`).join('')}
+              </div>
+              <div class="res-desc">${racket.desc}</div>
+              <div class="buy-row">
+                <a class="buy az" href="${racket.links.amazon}" target="_blank" rel="noreferrer noopener">AMAZON</a>
+                <a class="buy te" href="${racket.links.tennisExpress}" target="_blank" rel="noreferrer noopener">TENNIS EXPRESS</a>
+                <a class="buy tw" href="${racket.links.tennisWarehouse}" target="_blank" rel="noreferrer noopener">TENNIS WAREHOUSE</a>
+              </div>
+            </div>
+            <div class="res-photo">
+              <img src="${racket.image}" alt="${racket.name} tennis racket" loading="lazy">
+            </div>
           </div>
         </div>
       `
@@ -401,11 +415,11 @@ function showResults() {
   elements.progressNumber.textContent = `${questions.length} / ${questions.length}`;
   elements.quizArea.innerHTML = `
     <div class="card results-header">
-      <div class="q-step results-step">✅ FITTING COMPLETE <span class="blink">▌</span></div>
+      <div class="q-step results-step">[COMPLETE] FITTING DONE <span class="blink">_</span></div>
       <div class="q-text results-title">YOUR PERSONALIZED RACKET MATCHES:</div>
     </div>
     ${cardsMarkup}
-    <button class="restart" type="button" data-action="restart">↩ RETAKE QUIZ</button>
+    <button class="restart" type="button" data-action="restart">&lt;&lt; RETAKE QUIZ</button>
   `;
 }
 

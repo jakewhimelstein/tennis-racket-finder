@@ -402,10 +402,61 @@ body {
   background: #fff;
 }
 
-.icon {
-  text-align: center;
-  font-size: 26px;
-  margin-bottom: 4px;
+.pixel-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.pixel-logo-ball {
+  width: 22px;
+  height: 22px;
+  background:
+    linear-gradient(135deg, #6dbf7e 0 48%, #013332 48% 100%);
+  border: 3px solid #f4f0e6;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.45);
+  image-rendering: pixelated;
+}
+
+.res-card-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px;
+  gap: 12px;
+  align-items: start;
+}
+
+.res-body {
+  min-width: 0;
+}
+
+.res-photo {
+  background: #013332;
+  border: 3px solid #013332;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.35);
+  padding: 6px;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.res-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 210px;
+  object-fit: contain;
+  background: #f4f0e6;
+}
+
+.rank-num {
+  display: inline-block;
+  font-size: 5px;
+  color: #f4f0e6;
+  background: #013332;
+  padding: 3px 6px;
+  border: 2px solid #013332;
+  margin-right: 6px;
 }
 
 .results-header {
@@ -418,4 +469,17 @@ body {
 
 .results-title {
   color: #013332;
+}
+
+@media (max-width: 560px) {
+  .res-card-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .res-photo {
+    order: -1;
+    max-width: 140px;
+    margin: 0 auto 4px;
+    min-height: 0;
+  }
 }
