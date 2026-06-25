@@ -38,7 +38,7 @@ html {
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
@@ -107,19 +107,19 @@ html {
 
 .title {
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   color: #f4f0e6;
   text-shadow: 2px 2px 0 #000, 3px 3px 0 rgba(0, 0, 0, 0.4);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   line-height: 1.7;
   letter-spacing: 1px;
 }
 
 .subtitle {
   text-align: center;
-  font-size: 6px;
+  font-size: 8px;
   color: #a8e6c0;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   letter-spacing: 2px;
   text-shadow: 1px 1px 0 #000;
 }
@@ -128,8 +128,8 @@ html {
   background: #f4f0e6;
   border: 4px solid #f4f0e6;
   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
-  padding: 16px 15px;
-  margin-bottom: 14px;
+  padding: 18px 17px;
+  margin-bottom: 16px;
 }
 
 .question-card {
@@ -188,15 +188,15 @@ html {
 }
 
 .prog-label {
-  font-size: 6px;
+  font-size: 8px;
   color: #f4f0e6;
-  min-width: 58px;
+  min-width: 68px;
   letter-spacing: 1px;
 }
 
 .prog-track {
   flex: 1;
-  height: 9px;
+  height: 11px;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
@@ -209,37 +209,37 @@ html {
 }
 
 .prog-num {
-  font-size: 6px;
+  font-size: 8px;
   color: #f4f0e6;
-  min-width: 38px;
+  min-width: 44px;
   text-align: right;
 }
 
 .q-step {
-  font-size: 6px;
+  font-size: 8px;
   color: #2a6655;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
 .q-text {
-  font-size: 8px;
+  font-size: 11px;
   color: #013332;
-  line-height: 1.9;
-  margin-bottom: 5px;
+  line-height: 1.85;
+  margin-bottom: 7px;
 }
 
 .q-hint {
-  font-size: 6px;
+  font-size: 8px;
   color: #1a5545;
   line-height: 1.9;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .opts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7px;
+  gap: 9px;
 }
 
 .opts.col1 {
@@ -252,14 +252,35 @@ html {
 
 .opt {
   font-family: 'Press Start 2P', monospace;
-  font-size: 6px;
+  font-size: 7px;
   background: #013332;
   color: #f4f0e6;
   border: 3px solid #013332;
-  padding: 9px 8px;
+  padding: 12px 10px;
   cursor: pointer;
   text-align: left;
-  line-height: 1.8;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.opt-title {
+  display: block;
+  font-size: 10px;
+  line-height: 1.65;
+  letter-spacing: 0.4px;
+}
+
+.opt-detail {
+  display: block;
+  font-size: 7px;
+  line-height: 1.75;
+  opacity: 0.9;
+}
+
+.opt.sel .opt-detail {
+  opacity: 1;
 }
 
 .opt:hover {
@@ -292,17 +313,17 @@ html {
 }
 
 .res-rank {
-  font-size: 6px;
+  font-size: 8px;
   color: #2a6655;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   display: flex;
   justify-content: space-between;
 }
 
 .res-name {
-  font-size: 9px;
+  font-size: 12px;
   color: #013332;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
   line-height: 1.7;
 }
 
@@ -315,8 +336,8 @@ html {
 
 .tag {
   font-family: 'Press Start 2P', monospace;
-  font-size: 5px;
-  padding: 3px 7px;
+  font-size: 7px;
+  padding: 4px 8px;
   border: 2px solid;
 }
 
@@ -339,23 +360,82 @@ html {
 }
 
 .res-desc {
-  font-size: 6px;
+  font-size: 8px;
   color: #1a3a30;
-  line-height: 2.1;
-  margin-bottom: 10px;
+  line-height: 2;
+  margin-bottom: 12px;
+}
+
+.pros-block {
+  background: #e8e4d8;
+  border: 2px solid #013332;
+  padding: 10px 11px;
+  margin-bottom: 12px;
+}
+
+.pros-label {
+  font-size: 7px;
+  color: #2a6655;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.pros-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 12px;
+}
+
+.pro-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.tour-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  padding: 4px 6px;
+  border: 2px solid;
+  min-width: 34px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tour-tag.atp {
+  color: #013332;
+  background: #d3eccd;
+  border-color: #013332;
+}
+
+.tour-tag.wta {
+  color: #6b4b00;
+  background: #fdefc8;
+  border-color: #6b4b00;
+}
+
+.pro-name {
+  font-size: 7px;
+  color: #013332;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .spec-row {
   display: flex;
-  gap: 6px;
+  gap: 7px;
   flex-wrap: wrap;
-  margin-bottom: 11px;
+  margin-bottom: 12px;
 }
 
 .spec-pill {
   font-family: 'Press Start 2P', monospace;
-  font-size: 5px;
-  padding: 3px 7px;
+  font-size: 7px;
+  padding: 4px 8px;
   background: #013332;
   color: #f4f0e6;
   border: 2px solid #013332;
@@ -369,8 +449,8 @@ html {
 
 .buy {
   font-family: 'Press Start 2P', monospace;
-  font-size: 5px;
-  padding: 7px 9px;
+  font-size: 7px;
+  padding: 8px 10px;
   border: 2px solid;
   cursor: pointer;
   text-decoration: none;
@@ -408,17 +488,17 @@ html {
 }
 
 .score-b {
-  font-size: 5px;
+  font-size: 7px;
   color: #f4f0e6;
   background: #013332;
-  padding: 3px 7px;
+  padding: 4px 8px;
   border: 2px solid #013332;
 }
 
 .restart {
   font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  padding: 11px 18px;
+  font-size: 9px;
+  padding: 12px 20px;
   background: #f4f0e6;
   color: #013332;
   border: 3px solid #f4f0e6;
@@ -481,10 +561,10 @@ html {
 
 .rank-num {
   display: inline-block;
-  font-size: 5px;
+  font-size: 7px;
   color: #f4f0e6;
   background: #013332;
-  padding: 3px 6px;
+  padding: 4px 7px;
   border: 2px solid #013332;
   margin-right: 6px;
 }
@@ -504,6 +584,14 @@ html {
 @media (max-width: 560px) {
   .res-card-inner {
     grid-template-columns: 1fr;
+  }
+
+  .pros-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pro-name {
+    white-space: normal;
   }
 
   .res-photo {

@@ -114,6 +114,12 @@ const rackets = [
       { label: 'all-levels', color: 'b' }
     ],
     desc: 'Exceptionally flexible frame (RA 55) that kills vibration - the go-to prescription for tennis elbow. Large 100 sq in head with a 16x19 open pattern gives forgiveness and spin without punishing stiff contact.',
+    pros: [
+      { name: 'Madison Keys', tour: 'WTA' },
+      { name: 'Grigor Dimitrov', tour: 'ATP' },
+      { name: 'Hyeon Chung', tour: 'ATP' },
+      { name: 'Venus Williams', tour: 'WTA' }
+    ],
     score: (answers) =>
       (answers.weakness === 'arm' ? 4 : 0) +
       (answers.headsize === 'mid_plus' || answers.headsize === 'notsure' ? 2 : 0) +
@@ -136,6 +142,12 @@ const rackets = [
       { label: 'intermediate+', color: 'b' }
     ],
     desc: 'The benchmark power racket. Stiff frame (RA 71) + 16x19 open pattern launches balls deep with minimal effort. Best for players with consistent mechanics who want effortless depth and pace from the baseline.',
+    pros: [
+      { name: 'Garbine Muguruza', tour: 'WTA' },
+      { name: 'Fabio Fognini', tour: 'ATP' },
+      { name: 'Karolina Muchova', tour: 'WTA' },
+      { name: 'Cam Norrie', tour: 'ATP' }
+    ],
     score: (answers) =>
       (answers.weakness === 'nopower' ? 4 : 0) +
       (answers.shots === 'flat' || answers.shots === 'arm' ? 2 : 0) +
@@ -158,6 +170,12 @@ const rackets = [
       { label: 'all-court', color: 'b' }
     ],
     desc: 'Mid-flex frame (RA 63) rewards full body-rotation swings with natural spin production and excellent feel. Great balance of power and arm comfort for players who swing through the ball with body rotation.',
+    pros: [
+      { name: 'Coco Gauff', tour: 'WTA' },
+      { name: 'Lorenzo Musetti', tour: 'ATP' },
+      { name: 'Ons Jabeur', tour: 'WTA' },
+      { name: 'Karolina Pliskova', tour: 'WTA' }
+    ],
     score: (answers) =>
       (answers.shots === 'heavy' || answers.shots === 'body' ? 3 : 0) +
       (answers.weakness === 'nospin' ? 3 : 0) +
@@ -180,6 +198,12 @@ const rackets = [
       { label: 'baseliner', color: 'b' }
     ],
     desc: 'The topspin machine. Isometric head shape enlarges the sweet spot while the aerodynamic frame aids swing speed. Open 16x19 pattern + stiff frame = explosive spin from the baseline for high-NTRP players.',
+    pros: [
+      { name: 'Elena Rybakina', tour: 'WTA' },
+      { name: 'Casper Ruud', tour: 'ATP' },
+      { name: 'Brandon Nakashima', tour: 'ATP' },
+      { name: 'Jessica Pegula', tour: 'WTA' }
+    ],
     score: (answers) =>
       (answers.weakness === 'nospin' ? 4 : 0) +
       (answers.shots === 'heavy' ? 3 : 0) +
@@ -202,6 +226,12 @@ const rackets = [
       { label: 'advanced', color: 'a' }
     ],
     desc: "Federer's DNA. Dense 18x20 pattern + 315g weight gives exceptional precision and stability on fast incoming balls. Rewards advanced players who generate their own pace and demand pinpoint control above all else.",
+    pros: [
+      { name: 'Stefanos Tsitsipas', tour: 'ATP' },
+      { name: 'Grigor Dimitrov', tour: 'ATP' },
+      { name: 'Roger Federer', tour: 'ATP' },
+      { name: 'Petra Kvitova', tour: 'WTA' }
+    ],
     score: (answers) =>
       (answers.weakness === 'nocontrol' ? 4 : 0) +
       (answers.pattern === 'dense' ? 3 : 0) +
@@ -225,6 +255,12 @@ const rackets = [
       { label: 'all-court', color: 'b' }
     ],
     desc: "Djokovic's lineage. Lightweight and fast through the air - ideal for players who rely on quick swing speed to generate spin. Great net game feel and exceptional maneuverability for all-court players.",
+    pros: [
+      { name: 'Novak Djokovic', tour: 'ATP' },
+      { name: 'Jannik Sinner', tour: 'ATP' },
+      { name: 'Iga Swiatek', tour: 'WTA' },
+      { name: 'Ben Shelton', tour: 'ATP' }
+    ],
     score: (answers) =>
       (answers.shots === 'heavy' ? 3 : 0) +
       (answers.weakness === 'nospin' ? 2 : 0) +
@@ -248,6 +284,12 @@ const rackets = [
       { label: 'forgiving', color: 'b' }
     ],
     desc: 'Oversized head (102 sq in) + low stiffness (RA 58) = maximum forgiveness and arm comfort. Designed for players still building consistency. Mishits still clear the net, and the arm barely feels a thing.',
+    pros: [
+      { name: 'Daniil Medvedev', tour: 'ATP' },
+      { name: 'Cameron Norrie', tour: 'ATP' },
+      { name: 'Lucas Pouille', tour: 'ATP' },
+      { name: 'Arthur Fils', tour: 'ATP' }
+    ],
     score: (answers) =>
       (answers.ntrp === '25' ? 4 : 0) +
       (answers.weakness === 'arm' ? 3 : 0) +
@@ -270,6 +312,12 @@ const rackets = [
       { label: 'aggressive', color: 'a' }
     ],
     desc: "Nadal's weapon. Aerodynamic woofer frame cuts through air resistance for faster swing speeds. Stiff beam + 16x19 launches heavy topspin deep. Built for baseliners who swing hard and want the ball to kick high.",
+    pros: [
+      { name: 'Rafael Nadal', tour: 'ATP' },
+      { name: 'Carlos Alcaraz', tour: 'ATP' },
+      { name: 'Felix Auger-Aliassime', tour: 'ATP' },
+      { name: 'Leylah Fernandez', tour: 'WTA' }
+    ],
     score: (answers) =>
       (answers.shots === 'heavy' ? 4 : 0) +
       (answers.weakness === 'nospin' ? 3 : 0) +
@@ -331,6 +379,18 @@ function updateProgress() {
   elements.progressNumber.textContent = `${answered} / ${questions.length}`;
 }
 
+function formatOptionLabel(label) {
+  const lines = label.split('\n');
+  const title = lines[0];
+  const detail = lines.slice(1).join('<br>');
+
+  if (!detail) {
+    return `<span class="opt-title">${title}</span>`;
+  }
+
+  return `<span class="opt-title">${title}</span><span class="opt-detail">${detail}</span>`;
+}
+
 function renderQuestionCard(question, index) {
   const selectedValue = state.answers[question.id];
   const optionColumns = getOptionColumns(question.cols);
@@ -345,7 +405,7 @@ function renderQuestionCard(question, index) {
           data-question-id="${question.id}"
           data-question-index="${index}"
           data-value="${option.value}"
-        >${option.label.replace(/\n/g, '<br>')}</button>
+        >${formatOptionLabel(option.label)}</button>
       `
     )
     .join('');
@@ -361,6 +421,26 @@ function renderQuestionCard(question, index) {
       <div class="q-hint">${question.hint}</div>
       <div class="opts ${optionColumns}">${optionsMarkup}</div>
     </article>
+  `;
+}
+
+function renderProsList(pros) {
+  return `
+    <div class="pros-block">
+      <div class="pros-label">PRO TOUR USERS</div>
+      <ul class="pros-list">
+        ${pros
+          .map(
+            (pro) => `
+              <li class="pro-item">
+                <span class="tour-tag ${pro.tour.toLowerCase()}">${pro.tour}</span>
+                <span class="pro-name">${pro.name}</span>
+              </li>
+            `
+          )
+          .join('')}
+      </ul>
+    </div>
   `;
 }
 
@@ -390,6 +470,7 @@ function renderResultsMarkup() {
                 ${racket.tags.map((tag) => `<span class="${getTagClass(tag.color)}">${tag.label}</span>`).join('')}
               </div>
               <div class="res-desc">${racket.desc}</div>
+              ${renderProsList(racket.pros)}
               <div class="buy-row">
                 <a class="buy az" href="${racket.links.amazon}" target="_blank" rel="noreferrer noopener">AMAZON</a>
                 <a class="buy te" href="${racket.links.tennisExpress}" target="_blank" rel="noreferrer noopener">TENNIS EXPRESS</a>
